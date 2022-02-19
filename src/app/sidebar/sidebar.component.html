@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-12">
+        <h6>District</h6>
+        <select  class="form-control" (change)="getDistrict($event)">
+            <option value="">Select District</option>
+            <option value="{{obj.id}}" *ngFor="let obj of district">{{obj.name}}</option>
+        </select>
+    </div>
+    <!-- <div class="col-12 my-4">
+        <h6>Village</h6>
+        <select name="state" class="form-control" (change)="getCity($event)">
+            <option value="">Select State</option>
+            <option value="{{obj.id}}" *ngFor="let obj of state">{{obj.name}}</option>
+        </select>
+
+    </div> -->
+    <ng-container *ngIf="districtId">
+        <app-search-bar (submitted)="onTerm($event, districtId)"></app-search-bar>
+    </ng-container>
+    
+    
+    <div class="col-11 border m-3 p-2 rounded" *ngIf="pages">
+        <h6>Selected Village: </h6>
+        <app-search-list [pages]="pages" (row)="onSelectRow($event)"></app-search-list>
+        <ng-container *ngIf="pages.length == 0">
+            No data found
+          </ng-container>
+    </div>
+</div>

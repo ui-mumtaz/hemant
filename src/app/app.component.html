@@ -1,0 +1,17 @@
+<nav class="navbar navbar-light bg-light">
+  <div class="container">
+    <span class="navbar-brand mb-0 h1">People X</span>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 border-right pt-4">
+      <app-sidebar (row)="onSelectRow($event)"></app-sidebar>
+    </div>
+    <div class="col-md-8 pt-2">
+      <app-details [row]="data"></app-details>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
